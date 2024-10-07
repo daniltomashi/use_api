@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Predictor</title>
+</head>
+<body>
+    <h1>Heart Disease Predictor</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" value="10" required><br><br>
+
+        <label for="Sex">Sex:</label>
+        <select id="Sex" name="Sex" required>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select><br><br>
+
+        <label for="ChestPainType">Chest Pain Type:</label>
+        <select id="ChestPainType" name="ChestPainType" required>
+            <option value="ATA">ATA</option>
+            <option value="NAP">NAP</option>
+            <option value="ASY">ASY</option>
+            <option value="TA">TA</option>
+        </select><br><br>
+
+        <label for="RestingBP">Resting BP:</label>
+        <input type="number" id="RestingBP" name="RestingBP" value="10" required><br><br>
+
+        <label for="Cholesterol">Cholesterol:</label>
+        <input type="number" id="Cholesterol" name="Cholesterol" value="10" required><br><br>
+
+        <label for="FastingBS">Fasting BS:</label>
+        <input type="number" id="FastingBS" name="FastingBS" value="10" required><br><br>
+
+        <label for="RestingECG">Resting ECG:</label>
+        <select id="RestingECG" name="RestingECG" required>
+            <option value="Normal">Normal</option>
+            <option value="ST">ST</option>
+            <option value="LVH">LVH</option>
+        </select><br><br>
+
+        <label for="MaxHR">Max HR:</label>
+        <input type="number" id="MaxHR" name="MaxHR" value="10" required><br><br>
+
+        <label for="ExerciseAngina">Exercise Angina:</label>
+        <select id="ExerciseAngina" name="ExerciseAngina" required>
+            <option value="Y">Yes</option>
+            <option value="N">No</option>
+        </select><br><br>
+
+        <label for="Oldpeak">Oldpeak:</label>
+        <input type="number" id="Oldpeak" name="Oldpeak" step="0.1" value="10" required><br><br>
+
+        <label for="ST_Slope">ST Slope:</label>
+        <select id="ST_Slope" name="ST_Slope" required>
+            <option value="Up">Up</option>
+            <option value="Flat">Flat</option>
+            <option value="Down">Down</option>
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+        <h2>Prediction: {{ prediction }}</h2>
+    {% endif %}
+</body>
+</html>
